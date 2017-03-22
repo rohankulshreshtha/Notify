@@ -30,6 +30,7 @@ requirements - node.js and mongodb installed
 enter "all" in both fields.
 
 5.login by name.
+
 6. open another tab and login by any user that is subscriber of first one.
 
 7.update any field of first and see notification at other tab..
