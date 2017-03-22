@@ -18,8 +18,10 @@ on front end i have used basic css and javascript.
 
 
 
+
 Usage manual
 requirements - node.js and mongodb installed
+
 1. Download and reach to project via terminal and hit npm install
 
 2.then run project by node server.js
