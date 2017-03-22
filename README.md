@@ -16,7 +16,7 @@ i have made a singleton db connection so that db only connects once.
 i have used callback functions to deal with asynchronous nature of node.js
 on front end i have used basic css and javascript.
 
-Usage manual
+Usage manual:-
 
 requirements - node.js and mongodb installed
 
