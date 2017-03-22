@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Notify</title>
+<link rel="stylesheet" type="text/css" href="css/main.css" />
+</head>
+ 
+<body>
+    <h1>Real-Time Notification System</h1>
+    <div class="notification" id="form_initial">
+    <input type="text" id="name_initial" class="name" placeholder="Enter your name"/>
+    <button onclick="submit('form')">Login</button>
+    <p id="added"></p>
+    </div>
+    <button onclick="showadd('add_form')" id='add_button'>Add User</button>
+    <div class="notification" id="add_form" style="display:none">
+    <h2>Add user</h2>
+        <input type="text" id="name_add" class="name" placeholder="name"/>
+        <input type="text" id="email_add" class="name" placeholder="email"/>
+        <input type="text" id="address_add" class="name" placeholder="address"/>
+        <input type="text" id="phone_add" class="name" placeholder="phone"/>
+        <input type="text" id="sub_to" class="name" placeholder="subscribe to"/>
+        <input type="text" id="sub_field" class="name" placeholder="attribute"/>
+    <button onclick="add('form_initial')">Add</button>
+    </div>
+    <div class="notification" id="form" style="display:none">
+        <h2>Welcome</h2>
+        <input type="text" id="name" class="name" placeholder="name" readonly/>
+        <input type="text" id="email" class="name" placeholder="email"/>
+        <input type="text" id="address" class="name" placeholder="address"/>
+        <input type="text" id="phone" class="name" placeholder="phone"/>
+        <button onclick="update()">Update</button>
+        <p id="updated"></p><br>
+        <h3>Notifications</h3>
+         <div id='messages' class="messages"></div>
+    </div>
+ 
+    <script src="http://127.0.0.1:8080/socket.io/socket.io.js"></script>
+    <script src="socket.js"></script>
+    
+</body>
+ 
+</html>
