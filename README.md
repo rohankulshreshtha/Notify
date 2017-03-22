@@ -21,9 +21,15 @@ on front end i have used basic css and javascript.
 Usage manual
 requirements - node.js and mongodb installed
 1. Download and reach to project via terminal and hit npm install
+
 2.then run project by node server.js
+
 3.open locahost at 8081
-4.first add users and subscribe to already existing users .if you want to get notifications about everything of everybody then enter "all" in both fields.
+
+4.first add users and subscribe to already existing users .if you want to get notifications about everything of everybody then 
+enter "all" in both fields.
+
 5.login by name.
 6. open another tab and login by any user that is subscriber of first one.
+
 7.update any field of first and see notification at other tab..
