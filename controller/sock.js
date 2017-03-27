@@ -1,10 +1,10 @@
-//buisness logic
-//buisness logic
-//this gets triggered as soon as user opens the page
-    client.on('connection',function(socket){             
-            //wait for login info 
-            socket.on('input', function(data){
-                connections.push(socket);
+var MongoClient = require('mongodb').MongoClient;
+var path = require("path");
+var mongo = require( '../db/mongo' );
+ var fs = require("fs");
+
+exports.getInfo = function(connections,users,socket,data) {
+         connections.push(socket);
                 socket.username = data.name;
                 users.push(data.name);
                 var name = data.name;
@@ -14,12 +14,11 @@
                         if (data != null) {
                             connections[connections.indexOf(socket)].emit('info',data);     //send the info back to socket
                         } 
-                    });
-                });
+                    });    
+}
 
-            //adding a new user
-            socket.on('add_info', function(data){
-                //if user wants to a specific users specific field
+ exports.addInfo = function(connections,users,socket,data) {
+        //if user wants to a specific users specific field
                 if(data.sub_to != "all"){
                     db.collection('users').insertOne( {     //insert user
                     "name" : data.name,"email": data.email,"phone": data.phone,"address": data.address,"sub" : []}
@@ -54,11 +53,10 @@
                             
                     });
                 }
-            });
+ }
 
-            //updating the user and notifying the subscribed user
-            socket.on('update_info', function(data){
-                var col = db.collection('users').find({"name":data.name});
+ exports.updateInfo = function(connections,users,socket,data){
+        var col = db.collection('users').find({"name":data.name});
                 col.each(function(err, user) {  //finding the user
                     if(err) console.log("cannot parse the cursor");
                     if (user != null) {
@@ -89,11 +87,9 @@
                     }
                  
                 });
-            });
-
-            
-            socket.on('disconnect', function(socket){
-                connections.splice(connections.indexOf(socket),1);
+    }
+ 
+ exports.disconnect = function(connections,users,socket,data){
+        connections.splice(connections.indexOf(socket),1);
                 users.splice(connections.indexOf(socket),1);
-            });
-         });
+ }
