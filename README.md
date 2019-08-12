@@ -30,3 +30,4 @@ enter "all" in both fields.
 6. open another tab and login by any user that is subscriber of first one.
 
 7.update any field of first and see notification at other tab..
+8. The end
